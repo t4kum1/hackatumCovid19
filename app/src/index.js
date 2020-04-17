@@ -1,13 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { HashRouter, Route, Link } from 'react-router-dom';
 import './index.css';
-import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+import LoginPage from './pages/LoginPage';
+import RegisterShop from './pages/RegisterShopPage';
+import AddProduct from './pages/AddProductPage';
+
+
+
+ReactDOM.render((
+  <HashRouter>
+      <div>
+        <Route path='/' component={LoginPage}/>
+      </div>
+  </HashRouter>),
   document.getElementById('root')
 );
 
