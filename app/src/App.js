@@ -9,10 +9,10 @@ import LoginPage from './pages/LoginPage.js'
 import ShopList from './pages/ShopList.js'
 import ProductList from './pages/ProductList.js'
 //import Request from './pages/Request'
-//import RequestList from './pages/RequestList'
+import RequestList from './pages/RequestList'
 //import Item from './pages/Item'
-//import ShoppingCart from './pages/ShoppingCart'
-//import StockList from './pages/StockList'
+import ShoppingCart from './pages/ShoppingCart'
+import StockList from './pages/StockList'
 //import AddProduct from './pages/AddProductPage'
 import SignUpPage from './pages/SignUpPage'
 
@@ -26,7 +26,8 @@ class App extends React.Component{
       id: -1,
       selectedShop: '',
       sidebarOpened: false,
-      loggedIn: false
+      loggedIn: false,
+      shoppingCart: []
     }
   }
 
@@ -55,12 +56,17 @@ unlockSidebarHandler = () => {
     console.log('updated shop')
   }
 
+  addToCart(item){
+    this.state.shoppingCart.push(item);
+    console.log('added item')
+  }
+
   render(){
     let bdrop;
     if (this.state.sidebarOpened) {
         bdrop= <Backdrop click={this.backdropClickHandler} />
     }
-
+    console.log(this.state.name)
     return (
      <HashRouter>
         <div style={{height:'100%'}}>
@@ -74,11 +80,17 @@ unlockSidebarHandler = () => {
             </Route>
             <Route path='/signup' exact render={(props) => <SignUpPage update={this.update.bind(this)} {...props} />}/>
             <Route path='/shop'>
-              <ProductList shop={this.state.selectedShop}/> 
+              <ProductList shop={this.state.selectedShop} addToCart={this.addToCart.bind(this)}/> 
             </Route>
-            <Route path='/shoppingcart'></Route>
-            <Route path='/requestlist'></Route>
-            <Route path='/stocklist'></Route>
+            <Route path='/shoppingcart'>
+              <ShoppingCart shoppingCart={this.state.shoppingCart} />
+            </Route>
+            <Route path='/requestlist'>
+              <RequestList shopName={this.state.name} />
+            </Route>
+            <Route path='/stocklist'>
+              <StockList shopName={this.state.name}/>
+            </Route>
           </Switch>  
         </div>
     </HashRouter>

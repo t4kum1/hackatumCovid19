@@ -1,9 +1,14 @@
 import React from "react";
 
 export default class ShoppingCart extends React.Component {
-    render() {
+    render(props) {
+    	console.log(this.props)
         return (
-            <h1>TODO</h1>
+            <div>
+            	<h1>A</h1>
+            	{this.props.shoppingCart.map(item => 
+            		<p> {item.product_name} </p>)}
+            </div>
         );
     }
 } 

@@ -22,16 +22,20 @@ const navbar = props => {
     if(props.business) {
         items=<ul>
                 <Link to='/'>
-                    <li><a href="/">Buy</a></li>
+                    <li>Buy</li>
                 </Link>
                 <Link to='/shoppingcart'>
-                    <li><a href="/">Shopping Cart</a></li>
+                    <li>Shopping Cart</li>
                 </Link>
+                <Link to='/home'>
+                    <li>Buy</li>
+                </Link>
+
                 <Link to='/requestlist'>
-                    <li><a href="/">Requests</a></li>
+                    <li>Requests</li>
                 </Link>
                 <Link to='/stocklist'> 
-                    <li><a href="/">Stock</a></li>
+                    <li>Stock</li>
                 </Link>
               </ul>
     }

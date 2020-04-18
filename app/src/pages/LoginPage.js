@@ -48,14 +48,15 @@ export default class LoginPage extends React.Component {
     		var matching_users = this.state.users.filter(user => (user.user_name === this.state.login.name));
     		if (matching_users.length > 0){
     			console.log('logging in as customer');
+    			console.log('deep: ' + matching_users[0])
     			this.props.update({isBusiness: false, name: matching_users[0].user_name})
     			this.setState({loggedIn: true})
     		}
 
     		var matching_shops = this.state.shops.filter(shop => shop.shop_name === this.state.login.name);
     		if (matching_shops.length > 0){
-    			console.log('logging in as customer');
-    		  	this.props.update({isBusiness: true, name: matching_shops[0].user_name})
+    			console.log('logging in as business');
+    		  	this.props.update({isBusiness: true, name: matching_shops[0].shop_name})
     		  	this.setState({loggedIn: true})
     		}
     	}else{

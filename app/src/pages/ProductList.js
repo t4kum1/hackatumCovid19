@@ -2,10 +2,11 @@ import React from "react";
 //import tachyons from 'tachyons';
 
 export default class ProductList extends React.Component {
-    constructor(){
+    constructor(props){
     	super()
     	this.state = {
-    		products: []
+    		products: [],
+    		addToCart: props.addToCart
     	}
     }
 
@@ -20,8 +21,11 @@ export default class ProductList extends React.Component {
     		<div>
     			<h1> Welcome to {this.props.shop} </h1>
     			{this.state.products.filter(product => product.shop_name === this.props.shop)
-    				.map((product, i) => <p key={i}> Name: {product.product_name} </p>
-    			
+    				.map((product, i) => {return (
+    					<div style={{display: 'flex'}}>
+    						<p key={i}> Name: 	{product.product_name} </p>
+    						<button onClick={() => this.state.addToCart(product)} />
+    					</div>)}
     			)}
     		</div>
     	)
