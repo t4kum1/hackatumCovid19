@@ -1,5 +1,6 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
+import './ShopList.css'
 
 export default class ShopList extends React.Component {
     constructor(props){
@@ -26,13 +27,19 @@ export default class ShopList extends React.Component {
     render(props) {
     	if (this.state.selected.length === 0){
     		return (
-	        	<div style = {{display: 'grid', gridTemplateColumns: '1fr'}}>
-	        		<h1>  A</h1>
-	            	{this.state.shops.map((shop, i) => {
-	            		return(<button key={i} onClick={() => this.handleClick(shop.shop_name)}> 
-	            			Name: {shop.shop_name}, Type: {shop.sells}, Address: {shop.address} 
-	            		</button>)})}
-	            </div>
+				<div id="container"  
+        		style={{display: 'flex', justifyContent: 'space-around', height: '100vh', background: 'linear-gradient(to right, #eb8c34 0%, #eb5234 100%)'}}>
+					<div className="shopBox" style = {{}}>
+						{this.state.shops.map((shop, i) => {
+							return(<div className='shop' key={i} onClick={() => this.handleClick(shop.shop_name)}> 
+								<div className="logo"></div>
+								<div className="text">
+									<h3>{shop.shop_name}</h3> 
+									<p>Type: {shop.sells}</p> <p>Address: {shop.address}</p> 
+								</div>	
+							</div>)})}
+					</div>
+				</div>	
 	        );
     	}else{
     		return <Redirect to={'/Shop'} />
