@@ -44,9 +44,9 @@ unlockSidebarHandler = () => {
   this.setState({loggedIn: true});
 }
 
-  update(props){
-    console.log(this.props)
-    this.setState({isBusiness: this.props.isBusiness, name: this.props.name, loggedIn: true});
+  update(new_val){
+    console.log(new_val)
+    this.setState({isBusiness: new_val.isBusiness, name: new_val.name, loggedIn: true});
     console.log(this.state);
   }
 
