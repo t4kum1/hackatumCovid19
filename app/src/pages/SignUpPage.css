@@ -1,0 +1,9 @@
+
+.signupbox {
+    justify-content: center;
+    padding: 20px;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 16px;
+}
+

@@ -1,0 +1,19 @@
+
+
+.loginBox {
+    justify-content: center;
+    margin-top: 64px;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 16px;
+}
+
+.signupText a{
+    text-decoration: none;
+    cursor: pointer;
+    color: #eb8c34;
+}
+
+.signupText a:hover{
+    color:#eeee;
+}
