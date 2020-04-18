@@ -26,7 +26,7 @@ class App extends React.Component{
       id: -1,
       selectedShop: '',
       sidebarOpened: false,
-      loggedIn: true
+      loggedIn: false
     }
   }
 
