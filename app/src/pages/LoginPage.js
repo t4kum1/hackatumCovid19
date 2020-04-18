@@ -1,6 +1,6 @@
 import React from "react";
-import Login from "./components/Login";
-import tachyons from 'tachyons';
+//import Login from "./components/Login";
+//import tachyons from 'tachyons';
 import { Redirect,Link } from "react-router-dom";
 
 import './LoginPage.css'
@@ -76,7 +76,7 @@ export default class LoginPage extends React.Component {
 	            	<button onClick={this.handleLogin.bind(this)} > Login </button>
                     <br/>
                     <br/>
-                    <div className='signupText'>Don't have an account? <Link to='/signup'><a href="/">Click here to sign up</a></Link></div>
+                    <div className='signupText'>Don't have an account? <Link to='/signup'>Click here to sign up</Link></div>
 	            </div>
 	           </div>
         );

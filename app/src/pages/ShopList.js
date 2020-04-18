@@ -19,18 +19,19 @@ export default class ShopList extends React.Component {
 
     handleClick(name){
     	this.setState({selected: name});
-    	console.log(this.state.updateSelectedShop)
+    	//console.log(this.state.updateSelectedShop)
     	this.state.updateSelectedShop(name)
     }
 
-    render() {
+    render(props) {
     	if (this.state.selected.length === 0){
     		return (
 	        	<div style = {{display: 'grid', gridTemplateColumns: '1fr'}}>
-	            	{this.state.shops.map((shop, i) =>
-	            		<button key={i} onClick={() => this.handleClick(shop.shop_name)}> 
+	        		<h1>  A</h1>
+	            	{this.state.shops.map((shop, i) => {
+	            		return(<button key={i} onClick={() => this.handleClick(shop.shop_name)}> 
 	            			Name: {shop.shop_name}, Type: {shop.sells}, Address: {shop.address} 
-	            		</button>)}
+	            		</button>)})}
 	            </div>
 	        );
     	}else{

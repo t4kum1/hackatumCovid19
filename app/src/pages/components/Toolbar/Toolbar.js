@@ -10,10 +10,10 @@ const navbar = props => {
         btn=<div className="sidebarbtn"><BarButton click={props.sidebarClickHandler}/></div>;
         items=<ul>
                 <Link to='/home'>
-                    <li><a href="/">Buy</a></li>
+                    <li>Buy</li>
                 </Link>
                 <Link to='/shoppingcart'>
-                    <li><a href="/">Shopping cart</a></li>
+                    <li>Shopping cart</li>
                 </Link>
                     
                </ul>

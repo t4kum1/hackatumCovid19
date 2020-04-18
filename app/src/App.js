@@ -8,12 +8,12 @@ import Backdrop from "./pages/components/Backdrop/Backdrop"
 import LoginPage from './pages/LoginPage.js'
 import ShopList from './pages/ShopList.js'
 import ProductList from './pages/ProductList.js'
-import Request from './pages/Request'
-import RequestList from './pages/RequestList'
-import Item from './pages/Item'
-import ShoppingCart from './pages/ShoppingCart'
-import StockList from './pages/StockList'
-import AddProduct from './pages/AddProductPage'
+//import Request from './pages/Request'
+//import RequestList from './pages/RequestList'
+//import Item from './pages/Item'
+//import ShoppingCart from './pages/ShoppingCart'
+//import StockList from './pages/StockList'
+//import AddProduct from './pages/AddProductPage'
 import SignUpPage from './pages/SignUpPage'
 
 
@@ -45,7 +45,8 @@ unlockSidebarHandler = () => {
 }
 
   update(props){
-    this.setState({isBusiness: this.props.isBusiness, name: this.props.name});
+    console.log(this.props)
+    this.setState({isBusiness: this.props.isBusiness, name: this.props.name, loggedIn: true});
     console.log(this.state);
   }
 

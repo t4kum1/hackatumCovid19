@@ -1,6 +1,7 @@
 import React from "react";
-import tachyons from 'tachyons';
+//import tachyons from 'tachyons';
 import './SignUpPage.css'
+import { Redirect,Link } from "react-router-dom";
 
 export default class SignUpPage extends React.Component {
     constructor(props){
@@ -8,7 +9,8 @@ export default class SignUpPage extends React.Component {
 		this.state = {
 			update: props.update,
 			signUp: {isBusiness: '', name: '', pwd: '', sells: '', addr: '', test: '',shopname:''},
-			users: []
+			users: [], 
+			loggedIn: false
 		}
     }
 
@@ -54,6 +56,7 @@ export default class SignUpPage extends React.Component {
 			fetch('https://gentle-ravine-17514.herokuapp.com/shops', requestOptions)
 			    .then(response => response.json())
 			    .then(data => console.log(data));
+			this.state.update({isBusiness: true, name: this.state.name})	
 		}else{
 			const requestOptions = {
 			    method: 'POST',
@@ -64,36 +67,42 @@ export default class SignUpPage extends React.Component {
 			fetch('https://gentle-ravine-17514.herokuapp.com/users', requestOptions)
 			    .then(response => response.json())
 			    .then(data => console.log(data));
-		}	  	
+			this.state.update({isBusiness: false, name: this.state.name})	
+		}	
+
+		this.setState({loggedIn: true})  
+
 	}
     
     
     render() {
-        return (
-            <div id="container"  
-        		style={{display: 'flex', justifyContent: 'space-around', height: '100vh', background: 'linear-gradient(to right, #eb8c34 0%, #eb5234 100%)'}}>
-                <div className="signupbox" style={{alignSelf: 'center', padding: '20px'}}>
-	            	<h1 style={{color:'#eb8c34'}}> Sign Up </h1>
-	            	<form>
-  						<input type="text" name="name" placeholder="Name" value={this.state.signUp.name} onChange={this.handleSignUpNameChange.bind(this)} /><br />
-	            		<input type="password" name="pwd" placeholder="Password" value={this.state.signUp.pwd} onChange={this.handleSignUpPwdChange.bind(this)} /><br />
-	  					<input type="text" name="addr" placeholder="Address" value={this.state.signUp.addr} onChange={this.handleSignUpAddressChange.bind(this)} /><br />
-                        <br></br>
-                        Do you want to use this app for selling purposes?
-                        <br></br>
-                        <label for='business'>Yes: </label>
-	            		<input type="radio" name='business' value="business" checked={this.state.signUp.isBusiness === 'business'} onChange={this.handleSignUpIsBusinessChange.bind(this)}/>
-                        <label for='client'>No: </label>
-	            		<input type="radio" name='client' value="client" checked={this.state.signUp.isBusiness === 'client'} onChange={this.handleSignUpIsBusinessChange.bind(this)}/>
-	            	</form>
-                    <form className="businessForm" style={{display:'none'}}>
-                        <input type="text" name="sells" placeholder="What do you sell?" value={this.state.signUp.sells} onChange={this.handleSignUpSellsChange.bind(this)} /><br />
-                        <br></br>
-                    </form>
-                    <br></br>
-	            	<button onClick={this.handleSignUp.bind(this)}> Submit </button>
-	            </div> 
-            </div>    
-        );
+    	if (!this.state.loggedIn){
+	        return (
+	            <div id="container"  
+	        		style={{display: 'flex', justifyContent: 'space-around', height: '100vh', background: 'linear-gradient(to right, #eb8c34 0%, #eb5234 100%)'}}>
+	                <div className="signupbox" style={{alignSelf: 'center', padding: '20px'}}>
+		            	<h1 style={{color:'#eb8c34'}}> Sign Up </h1>
+		            	<form>
+	  						<input type="text" name="name" placeholder="Name" value={this.state.signUp.name} onChange={this.handleSignUpNameChange.bind(this)} /><br />
+		            		<input type="password" name="pwd" placeholder="Password" value={this.state.signUp.pwd} onChange={this.handleSignUpPwdChange.bind(this)} /><br />
+		  					<input type="text" name="addr" placeholder="Address" value={this.state.signUp.addr} onChange={this.handleSignUpAddressChange.bind(this)} /><br />
+	                        <br></br>
+	                        Do you want to use this app for selling purposes?
+	                        <br></br>
+	                        <label htmlFor='business'>Yes: </label>
+		            		<input type="radio" name='business' value="business" checked={this.state.signUp.isBusiness === 'business'} onChange={this.handleSignUpIsBusinessChange.bind(this)}/>
+	                        <label htmlFor='client'>No: </label>
+		            		<input type="radio" name='client' value="client" checked={this.state.signUp.isBusiness === 'client'} onChange={this.handleSignUpIsBusinessChange.bind(this)}/>
+		            	</form>
+	                    <form className="businessForm" style={{display:'none'}}>
+	                        <input type="text" name="sells" placeholder="What do you sell?" value={this.state.signUp.sells} onChange={this.handleSignUpSellsChange.bind(this)} /><br />
+	                        <br></br>
+	                    </form>
+	                    <br></br>
+		            	<button onClick={this.handleSignUp.bind(this)}> Submit </button>
+		            </div> 
+	            </div>    
+        	);
+        }else return <Redirect to={'/home'} />
     }    
 }    
