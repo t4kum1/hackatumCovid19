@@ -56,9 +56,11 @@ unlockSidebarHandler = () => {
     console.log('updated shop')
   }
 
-  addToCart(item){
+  addToCart(item, quantity){
+    item.quantity = quantity.value;
     this.state.shoppingCart.push(item);
     console.log('added item')
+    console.log(item)
   }
 
   render(){
