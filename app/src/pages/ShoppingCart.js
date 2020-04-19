@@ -65,7 +65,7 @@ export default class ShoppingCart extends React.Component {
                         <h2> {this.state.shoppingCart.length} items in the cart</h2>
                         <div className='cartlist'>
                                 {this.props.shoppingCart.map(item => 
-                                    <div className='cartitem'><p> {item.product_name} </p><div className='spacer'></div><p>x1</p></div> )}   	
+                                    <div className='cartitem'><p> {item.product_name} </p></div> )}   	
                         </div>
                         <p className='cartbtn' onClick={this.submitRequests.bind(this)}> Request items </p>
                     </div>
