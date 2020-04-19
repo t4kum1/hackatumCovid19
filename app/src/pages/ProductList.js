@@ -56,7 +56,8 @@ export default class ProductList extends React.Component {
 											<div className='fakeImg' />
 											<p className='itemname' key={i}> {product.product_name} </p>
 											<p className='price'>50 €</p>
-											<input id={i} type="number" />
+											<label htmlFor='amount'>Enter amount: </label>
+											<input className='amount' name='amount' id={i} type="number" />
 											<p className='addtocart' onClick={() => this.state.addToCart(product, document.getElementById(i).value)}> Add to Cart </p>
 										</div>)}
 								)}

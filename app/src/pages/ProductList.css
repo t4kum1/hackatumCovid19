@@ -32,6 +32,10 @@
     display:flex;
 }
 
+.amount {
+    width:30px;
+}
+
 .product {
     margin:3px;
     width:30%;
