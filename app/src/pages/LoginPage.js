@@ -74,8 +74,7 @@ export default class LoginPage extends React.Component {
 	            		<input type="password" name="pwd" placeholder="Password" value={this.state.login.pwd} onChange={this.handleLoginPwdChange.bind(this)} /><br />
 	            	</form>
                     <br></br>
-	            	<button onClick={this.handleLogin.bind(this)} > Login </button>
-                    <br/>
+	            	<p className='additembtn' onClick={this.handleLogin.bind(this)} > Login </p>
                     <br/>
                     <div className='signupText'>Don't have an account? <Link to='/signup'>Click here to sign up</Link></div>
 	            </div>

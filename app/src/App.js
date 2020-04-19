@@ -83,7 +83,7 @@ unlockSidebarHandler = () => {
               <ProductList shop={this.state.selectedShop} addToCart={this.addToCart.bind(this)}/> 
             </Route>
             <Route path='/shoppingcart'>
-              <ShoppingCart shoppingCart={this.state.shoppingCart} userName={this.state.name}/>
+              <ShoppingCart shoppingCart={this.state.shoppingCart} />
             </Route>
             <Route path='/requestlist'>
               <RequestList shopName={this.state.name} />

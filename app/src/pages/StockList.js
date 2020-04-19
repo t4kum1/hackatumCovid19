@@ -1,4 +1,5 @@
 import React from "react";
+import './StockList.css'
 
 export default class StockList extends React.Component {
     constructor(props){
@@ -51,17 +52,26 @@ export default class StockList extends React.Component {
     render() {
     	console.log(this.state)
     	return (
-    		<div>
-    			<h1>A</h1>
-    			<h1> This is your inventory,  {this.state.name} </h1>
-    			{this.state.products.filter(product => product.shop_name === this.state.name)
-    				.map((product, i) => {return (
-    						<p key={i}> Name: 	{product.product_name}, quantity: {product.quantity} </p>
-  					)}
-    			)}
-    			<input type="text" name="name" placeholder="Name" value={this.state.addItem} onChange={this.handleAddItemChange.bind(this)} /><br />
-    			<input type="number" name="quantity" placeholder="Quantity" value={this.state.quantity} onChange={this.handleQuantityChange.bind(this)} /><br />
-    			<button onClick={this.addItem.bind(this) }> Add Item </button>
+    		<div id="backgr"  
+        		style={{display: 'flex', justifyContent: 'space-around', height: '100vh', background: 'linear-gradient(to right, #eb8c34 0%, #eb5234 100%)'}}>
+				<div className='stockBox'>	
+					<h1> This is your inventory,  {this.state.name} </h1>
+					<h2> You have {this.state.products.length} products</h2>
+					<div className='liststock'>
+						{this.state.products.filter(product => product.shop_name === this.state.name)
+							.map((product, i) => {return (
+								<div className='stockitem'><p key={i}> {product.product_name} </p><div className='spacer'></div><p>x{product.quantity}</p></div>
+							)}
+						)}
+					</div>	
+				</div>
+				<div className='additemBox'>
+					<h2 className='addLabel'>Add item</h2>
+					<input type="text" name="name" placeholder="Product Name" value={this.state.addItem} onChange={this.handleAddItemChange.bind(this)} /><br />
+					<input type="number" name="quantity" placeholder="Quantity" value={this.state.quantity} onChange={this.handleQuantityChange.bind(this)} /><br />
+					<br/>
+					<p className='additembtn' onClick={this.addItem.bind(this) }> Add Item </p>
+				</div>
     		</div>
     	)
     }
