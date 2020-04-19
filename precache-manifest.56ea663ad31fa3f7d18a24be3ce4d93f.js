@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "1ab1e8ee2501c7056e1db7473c27aeb5",
+    "revision": "2bee9a1b217cb0ba41cbb2f573f0b3dd",
     "url": "/hackatumCovid19/index.html"
   },
   {
-    "revision": "d2ab9f907db054fcee4d",
+    "revision": "8ffe0fcddef9bb964add",
     "url": "/hackatumCovid19/static/css/main.145c3a34.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/hackatumCovid19/static/js/2.d7bf51f4.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "d2ab9f907db054fcee4d",
-    "url": "/hackatumCovid19/static/js/main.91f0e41e.chunk.js"
+    "revision": "8ffe0fcddef9bb964add",
+    "url": "/hackatumCovid19/static/js/main.cc07a489.chunk.js"
   },
   {
     "revision": "7f2311c215a00a4425ec",
