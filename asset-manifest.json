@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/hackatumCovid19/static/css/main.e14746be.chunk.css",
-    "main.js": "/hackatumCovid19/static/js/main.facd6e67.chunk.js",
-    "main.js.map": "/hackatumCovid19/static/js/main.facd6e67.chunk.js.map",
+    "main.css": "/hackatumCovid19/static/css/main.91ce1a8e.chunk.css",
+    "main.js": "/hackatumCovid19/static/js/main.0d2a2a93.chunk.js",
+    "main.js.map": "/hackatumCovid19/static/js/main.0d2a2a93.chunk.js.map",
     "runtime-main.js": "/hackatumCovid19/static/js/runtime-main.b77c5b6a.js",
     "runtime-main.js.map": "/hackatumCovid19/static/js/runtime-main.b77c5b6a.js.map",
     "static/js/2.d7bf51f4.chunk.js": "/hackatumCovid19/static/js/2.d7bf51f4.chunk.js",
     "static/js/2.d7bf51f4.chunk.js.map": "/hackatumCovid19/static/js/2.d7bf51f4.chunk.js.map",
     "index.html": "/hackatumCovid19/index.html",
-    "precache-manifest.79c7773f54f29a269cf9c2f2423b5be5.js": "/hackatumCovid19/precache-manifest.79c7773f54f29a269cf9c2f2423b5be5.js",
+    "precache-manifest.93213d8025cecfd6d84abe55ed518787.js": "/hackatumCovid19/precache-manifest.93213d8025cecfd6d84abe55ed518787.js",
     "service-worker.js": "/hackatumCovid19/service-worker.js",
-    "static/css/main.e14746be.chunk.css.map": "/hackatumCovid19/static/css/main.e14746be.chunk.css.map",
+    "static/css/main.91ce1a8e.chunk.css.map": "/hackatumCovid19/static/css/main.91ce1a8e.chunk.css.map",
     "static/js/2.d7bf51f4.chunk.js.LICENSE.txt": "/hackatumCovid19/static/js/2.d7bf51f4.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.b77c5b6a.js",
     "static/js/2.d7bf51f4.chunk.js",
-    "static/css/main.e14746be.chunk.css",
-    "static/js/main.facd6e67.chunk.js"
+    "static/css/main.91ce1a8e.chunk.css",
+    "static/js/main.0d2a2a93.chunk.js"
   ]
 }
