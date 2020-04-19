@@ -27,7 +27,7 @@ export default class ShoppingCart extends React.Component {
 	}
 
     render() {
-    	
+    	console.log(this.state.shoppingCart)
         return (
             <div>
             	<h1>A</h1>
