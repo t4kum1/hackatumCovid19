@@ -28,14 +28,14 @@ export default class StockList extends React.Component {
     		const requestOptions = {
 			    method: 'POST',
 			    headers: { 'Content-Type': 'application/json' },
-			    body: JSON.stringify({shop_name: this.state.name, product_name: this.state.addItem, quantity:  1})
+			    body: JSON.stringify({shop_name: this.state.name, product_name: this.state.addItem, quantity:  this.state.quantity})
 			};
 			console.log(requestOptions.body)
 			fetch('https://gentle-ravine-17514.herokuapp.com/products', requestOptions)
 			    .then(response => response.json())
 			    .then(data => console.log(data));
 			this.setState({addItem: ''})
-			this.loadProducts();
+			this.state.products.push({shop_name: this.state.name, product_name: this.state.addItem, quantity:  this.state.quantity})
     	}
     	
     }
@@ -49,14 +49,14 @@ export default class StockList extends React.Component {
     }
 
     render() {
+    	console.log(this.state)
     	return (
     		<div>
     			<h1>A</h1>
     			<h1> This is your inventory,  {this.state.name} </h1>
-    			{this.state.products.filter(product => product.shop_name === this.props.shop)
+    			{this.state.products.filter(product => product.shop_name === this.state.name)
     				.map((product, i) => {return (
-  
-    						<p key={i}> Name: 	{product.product_name} </p>
+    						<p key={i}> Name: 	{product.product_name}, quantity: {product.quantity} </p>
   					)}
     			)}
     			<input type="text" name="name" placeholder="Name" value={this.state.addItem} onChange={this.handleAddItemChange.bind(this)} /><br />
