@@ -24,7 +24,8 @@ export default class ProductList extends React.Component {
     				.map((product, i) => {return (
     					<div style={{display: 'flex'}}>
     						<p key={i}> Name: 	{product.product_name} </p>
-    						<button onClick={() => this.state.addToCart(product)} />
+    						<input type="number" id={i}/>
+    						<button onClick={() => this.state.addToCart(product, document.getElementById(i))} />
     					</div>)}
     			)}
     		</div>
