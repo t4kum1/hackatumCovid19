@@ -1,4 +1,5 @@
 import React from "react";
+import './RequestList.css'
 
 export default class RequestList extends React.Component {
     constructor(props){
@@ -18,16 +19,21 @@ export default class RequestList extends React.Component {
     render() {
     	console.log(this.state.shop_name)
         return (
-            <div>
-            	{this.state.requests.filter(request => request.shop_name === this.state.shop_name)
-            		.map(request => {
-            			return(
-            				<div>
-            					<h1> A </h1>
-            					<p> Name: {request.product_name}, Desired Quantity: {request.request_quantity}, Available: {request.product_quantity} </p>
-            				</div>)
-            		}
-            	)}
+            <div id="backgr"  
+        		style={{display: 'flex', justifyContent: 'space-around', height: '100vh', background: 'linear-gradient(to right, #eb8c34 0%, #eb5234 100%)'}}>
+				<div className='requestBox'>
+					<h1>Pending requests</h1>
+						<div className='reqlist'>
+						{this.state.requests.filter(request => request.shop_name === this.state.shop_name)
+							.map(request => {
+								return(
+									<div className='request'>
+										<p className='implabel'>{request.product_name}</p> <p> Desired Quantity:</p> <p className='implabel'> {request.request_quantity} </p> <p> Available: </p> <p className='implabel'> {request.product_quantity} </p>
+									</div>)
+							}
+						)}
+					</div>
+				</div>	
             </div>
         );
     }

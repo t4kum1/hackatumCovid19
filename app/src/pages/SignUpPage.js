@@ -99,7 +99,7 @@ export default class SignUpPage extends React.Component {
 	                        <br></br>
 	                    </form>
 	                    <br></br>
-		            	<button onClick={this.handleSignUp.bind(this)}> Submit </button>
+		            	<p className='additembtn' onClick={this.handleSignUp.bind(this)}> Submit </p>
 		            </div> 
 	            </div>    
         	);

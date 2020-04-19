@@ -1,11 +1,15 @@
 import React from "react";
+import './ShoppingCart.css'
+import Backdrop from "./components/Backdrop/Backdrop"
+import Message from "./components/Message/message"
 
 export default class ShoppingCart extends React.Component {
 	constructor(props){
 		super();
 		this.state = {
 			shoppingCart: props.shoppingCart,
-			user_name: props.userName
+            user_name: props.userName,
+            msgShown: false
 		}
 	}
 
@@ -23,17 +27,46 @@ export default class ShoppingCart extends React.Component {
 
 	submitRequests(){
 		this.state.shoppingCart.forEach(item =>
-			this.submitRequest(item))
-	}
+            this.submitRequest(item))
+        this.msgToggleButtonClickHandler()    
+            
+    }
+    
+    bckdrpClickHandler = () => {
+        this.setState({msgShown: false});
+    }
+
+    msgToggleButtonClickHandler = () => {
+        this.setState((prevState) => {
+            return {msgShown: !prevState.msgShown};
+        })
+    };
 
     render() {
-    	console.log(this.state.shoppingCart)
+
+        let bckdrp;
+        let mesg;
+        if (this.state.msgShown) {
+            bckdrp= <Backdrop click={this.bckdrpClickHandler} />
+            mesg=<Message text={'Request sent!'}/>
+        }
+
         return (
             <div>
-            	<h1>A</h1>
-            	{this.state.shoppingCart.map(item => 
-            		<p> {item.product_name}: {item.quantity} </p>)}
-            	<button onClick={this.submitRequests.bind(this)}> Request items on list </button>
+                {mesg}
+                {bckdrp}
+                <div id="backgr"  
+                    style={{display: 'flex', justifyContent: 'space-around', height: '100vh', background: 'linear-gradient(to right, #eb8c34 0%, #eb5234 100%)'}}>
+                    <div className='cart'>   
+                        <h1>Shopping Cart</h1>
+                        <h2> {this.state.shoppingCart.length} items in the cart</h2>
+                        <div className='cartlist'>
+                                {this.props.shoppingCart.map(item => 
+                                    <div className='cartitem'><p> {item.product_name} </p><div className='spacer'></div><p>x1</p></div> )}   	
+                        </div>
+                        <p className='cartbtn' onClick={this.submitRequests.bind(this)}> Request items </p>
+                    </div>
+                </div>
             </div>
         );
     }

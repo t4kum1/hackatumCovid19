@@ -21,16 +21,12 @@ const navbar = props => {
 
     if(props.business) {
         items=<ul>
-                <Link to='/'>
+                <Link to='/home'>
                     <li>Buy</li>
                 </Link>
                 <Link to='/shoppingcart'>
                     <li>Shopping Cart</li>
                 </Link>
-                <Link to='/home'>
-                    <li>Buy</li>
-                </Link>
-
                 <Link to='/requestlist'>
                     <li>Requests</li>
                 </Link>
@@ -43,7 +39,7 @@ const navbar = props => {
         <header className="toolbar">
             <nav className="navi">
                 {btn}
-                <div className="navi_logo"><a href ="/">LOCKDOWNSHOPPING</a></div>
+                <div className="navi_logo"><Link to ='/'><a>LOCKDOWNSHOPPING</a></Link></div>
                 <div className="placeholder"></div>
                 <div className="navi_items">
                     {items}
