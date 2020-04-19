@@ -24,6 +24,7 @@ export default class StockList extends React.Component {
     }
 
     addItem(){
+        console.log(this.state.name)
     	if (this.state.addItem.length > 0){
     		const requestOptions = {
 			    method: 'POST',
