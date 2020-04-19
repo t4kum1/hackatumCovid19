@@ -58,9 +58,8 @@ unlockSidebarHandler = () => {
 
   addToCart(item, quantity){
     console.log('adding to cart');
-    console.log(item)
     console.log(quantity)
-    item.quantity = quantity.value;
+    item.quantity = quantity;
     this.state.shoppingCart.push(item);
   }
 
@@ -86,7 +85,7 @@ unlockSidebarHandler = () => {
               <ProductList shop={this.state.selectedShop} addToCart={this.addToCart.bind(this)}/> 
             </Route>
             <Route path='/shoppingcart'>
-              <ShoppingCart shoppingCart={this.state.shoppingCart} />
+              <ShoppingCart shoppingCart={this.state.shoppingCart} userName={this.state.name}/>
             </Route>
             <Route path='/requestlist'>
               <RequestList shopName={this.state.name} />

@@ -14,6 +14,9 @@ export default class ShoppingCart extends React.Component {
 	}
 
 	submitRequest(item){
+		console.log('-----------------')
+		console.log(this.state.user_name)
+		console.log(item.quantity)
 		const requestOptions = {
 			    method: 'POST',
 			    headers: { 'Content-Type': 'application/json' },
